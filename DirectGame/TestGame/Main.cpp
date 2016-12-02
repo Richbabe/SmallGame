@@ -2,6 +2,7 @@
 #include "GameEngine.h"
 #include <windows.h>
 #include "GameTexture.h"
+#include "FontClass.h"
 
 #include "InputClass.h"
 
@@ -31,6 +32,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
+	
 	WNDCLASSEX wc;
 	HWND hwnd;
 	MSG Msg;
@@ -77,6 +79,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	UpdateWindow(hwnd);
 
 	gD3dEngine.Initialize(ScreenWith, ScreenHeight,true,hwnd,false,0,0);
+	FontClass font;
+	font.Initialize(gD3dEngine.GetDevice(),gD3dEngine.GetSwapChain());
 
 	ModelClass quadModel;
 	quadModel.Initialize(gD3dEngine.GetDevice());
@@ -147,6 +151,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			quadModel.SetCBuffer(gD3dEngine.GetDeviceContext(), 0.1, 0.1, pos, 0.5);
 			quadModel.DrawSprite(gD3dEngine.GetDeviceContext());
 
+			font.Draw();
 			gD3dEngine.EndScene();
 
 			input.Frame();
