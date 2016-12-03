@@ -173,6 +173,184 @@ void InputClass::GetMouseLocation(int& mouseX, int& mouseY)
 	return;
 }
 
+KeyCode InputClass::GetApplicationKeyCode()
+{
+	if (m_keyboardState[DIK_A] & 0x80)
+	{
+		return KeyCode::Key_A;
+	}
+	else if (m_keyboardState[DIK_B] & 0x80)
+	{
+		return KeyCode::Key_B;
+	}
+	else if (m_keyboardState[DIK_C] & 0x80)
+	{
+		return KeyCode::Key_C;
+	}
+	else if (m_keyboardState[DIK_D] & 0x80)
+	{
+		return KeyCode::Key_D;
+	}
+	else if (m_keyboardState[DIK_E] & 0x80)
+	{
+		return KeyCode::Key_E;
+	}
+	else if (m_keyboardState[DIK_F] & 0x80)
+	{
+		return KeyCode::Key_F;
+	}
+	else if (m_keyboardState[DIK_G] & 0x80)
+	{
+		return KeyCode::Key_G;
+	}
+	else if (m_keyboardState[DIK_H] & 0x80)
+	{
+		return KeyCode::Key_H;
+	}
+	else if (m_keyboardState[DIK_I] & 0x80)
+	{
+		return KeyCode::Key_I;
+	}
+	else if (m_keyboardState[DIK_J] & 0x80)
+	{
+		return KeyCode::Key_J;
+	}
+	else if (m_keyboardState[DIK_K] & 0x80)
+	{
+		return KeyCode::Key_K;
+	}
+	else if (m_keyboardState[DIK_L] & 0x80)
+	{
+		return KeyCode::Key_L;
+	}
+	else if (m_keyboardState[DIK_M] & 0x80)
+	{
+		return KeyCode::Key_M;
+	}
+	else if (m_keyboardState[DIK_N] & 0x80)
+	{
+		return KeyCode::Key_N;
+	}
+	else if (m_keyboardState[DIK_O] & 0x80)
+	{
+		return KeyCode::Key_O;
+	}
+	else if (m_keyboardState[DIK_P] & 0x80)
+	{
+		return KeyCode::Key_P;
+	}
+	else if (m_keyboardState[DIK_Q] & 0x80)
+	{
+		return KeyCode::Key_Q;
+	}
+	else if (m_keyboardState[DIK_R] & 0x80)
+	{
+		return KeyCode::Key_R;
+	}
+	else if (m_keyboardState[DIK_S] & 0x80)
+	{
+		return KeyCode::Key_S;
+	}
+	else if (m_keyboardState[DIK_T] & 0x80)
+	{
+		return KeyCode::Key_T;
+	}
+	else if (m_keyboardState[DIK_U] & 0x80)
+	{
+		return KeyCode::Key_U;
+	}
+	else if (m_keyboardState[DIK_V] & 0x80)
+	{
+		return KeyCode::Key_V;
+	}
+	else if (m_keyboardState[DIK_W] & 0x80)
+	{
+		return KeyCode::Key_W;
+	}
+	else if (m_keyboardState[DIK_X] & 0x80)
+	{
+		return KeyCode::Key_X;
+	}
+	else if (m_keyboardState[DIK_Y] & 0x80)
+	{
+		return KeyCode::Key_Y;
+	}
+	else if (m_keyboardState[DIK_Z] & 0x80)
+	{
+		return KeyCode::Key_Z;
+	}
+	else if (m_keyboardState[DIK_0] & 0x80)
+	{
+		return KeyCode::Key_0;
+	}
+	else if (m_keyboardState[DIK_1] & 0x80)
+	{
+		return KeyCode::Key_1;
+	}
+	else if (m_keyboardState[DIK_2] & 0x80)
+	{
+		return KeyCode::Key_2;
+	}
+	else if (m_keyboardState[DIK_3] & 0x80)
+	{
+		return KeyCode::Key_3;
+	}
+	else if (m_keyboardState[DIK_4] & 0x80)
+	{
+		return KeyCode::Key_4;
+	}
+	else if (m_keyboardState[DIK_5] & 0x80)
+	{
+		return KeyCode::Key_5;
+	}
+	else if (m_keyboardState[DIK_6] & 0x80)
+	{
+		return KeyCode::Key_6;
+	}
+	else if (m_keyboardState[DIK_7] & 0x80)
+	{
+		return KeyCode::Key_7;
+	}
+	else if (m_keyboardState[DIK_8] & 0x80)
+	{
+		return KeyCode::Key_8;
+	}
+	else if (m_keyboardState[DIK_9] & 0x80)
+	{
+		return KeyCode::Key_9;
+	}
+	else if (m_keyboardState[DIK_LEFT] & 0x80)
+	{
+		return KeyCode::Key_Left;
+	}
+	else if (m_keyboardState[DIK_RIGHT] & 0x80)
+	{
+		return KeyCode::Key_Right;
+	}
+	else if (m_keyboardState[DIK_UP] & 0x80)
+	{
+		return KeyCode::Key_Up;
+	}
+	else if (m_keyboardState[DIK_DOWN] & 0x80)
+	{
+		return KeyCode::Key_Down;
+	}
+	else if (m_keyboardState[DIK_SPACE] & 0x80)
+	{
+		return KeyCode::Key_Space;
+	}
+	else if (m_keyboardState[DIK_ESCAPE] & 0x80)
+	{
+		return KeyCode::Key_Esc;
+	}
+	else if (m_keyboardState[DIK_RETURN] & 0x80)
+	{
+		return KeyCode::Key_Enter;
+	}
+	
+	return KeyCode::Key_Last;
+}
+
 bool InputClass::ReadKeyboard()
 {
 	HRESULT result;
@@ -193,10 +371,19 @@ bool InputClass::ReadKeyboard()
 		}
 	}
 
-	if (m_keyboardState[DIK_A] & 0x80)
-	{
-		int y = 0;
-	}
+	
+	
+
+// 	if (m_keyboardState[DIK_LEFT] & 0x80)
+// 	{
+// 		int y = 0;
+// 	}
+// 
+// 	if (m_keyboardState[DIK_LEFT] & 0x80)
+// 	{
+// 		int y = 0;
+// 	}
+
 
 	return true;
 }

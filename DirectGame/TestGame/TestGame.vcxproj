@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="D3dGameEngine.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="FontClass.cpp" />
+    <ClCompile Include="SpriteNode.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -31,17 +33,22 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TextClass.cpp" />
+    <ClCompile Include="WindowsGameEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Engine\GameEngine.h" />
     <ClInclude Include="..\Engine\GameEngineTypes.h" />
     <ClInclude Include="..\Engine\GameTexture.h" />
     <ClInclude Include="..\Engine\KeyCodes.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="D3dGameEngine.h" />
     <ClInclude Include="FontClass.h" />
     <ClInclude Include="InputClass.h" />
+    <ClInclude Include="SpriteNode.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextClass.h" />
+    <ClInclude Include="WindowsGameEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
@@ -143,12 +150,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28August 2009%29\Include;../Engine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../DirectXSDK/Include;../Engine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Microsoft DirectX SDK (August 2009)\Lib\x64;../x64/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../DirectXSDK/Lib/x64;../x64/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Engine.lib;DXGI.lib;D3D11.lib;D3DX11.lib;D2D1.lib;DWrite.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

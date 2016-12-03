@@ -6,35 +6,32 @@
 
 #include "GameEngine.h"
 #include <d3dx9math.h>
-#include <d3d11.h>
+#include <string>
 
 class GameTexture
 {
 public:
 	GameTexture();
 	virtual ~GameTexture();
-};
-
-class TextureClass
-{
-public:
-	TextureClass();
-	~TextureClass();
 	ID3D11ShaderResourceView* GetTexture() { return m_texture; }
-	bool Initialize(ID3D11Device*, char*);
+	bool Initialize(ID3D11Device*device, char*filename);
 	ID3D11SamplerState* GetSampleState() { return m_sampleState; }
-private:
 
-		ID3D11ShaderResourceView* m_texture;
-		ID3D11SamplerState* m_sampleState;
+	const float GetTextureSizeX() { return m_texSizeX; }
+	const float GetTexureSizeY() { return m_texSizeY; }
+	std::string& GetTextureName() { return m_textureName; }
+private:
+	ID3D11ShaderResourceView* m_texture;
+	ID3D11SamplerState* m_sampleState;
+	float m_texSizeX;
+	float m_texSizeY;
+	std::string m_textureName;
 };
 
 
 class ModelClass
 {
 private:
-
-
 	struct VertexType
 	{
 		D3DXVECTOR3 position;
@@ -48,7 +45,6 @@ private:
 
 public:
 	ModelClass();
-	ModelClass(const ModelClass&);
 	~ModelClass();
 
 	bool Initialize(ID3D11Device*);

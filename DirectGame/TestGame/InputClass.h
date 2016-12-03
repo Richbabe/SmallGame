@@ -1,10 +1,8 @@
 #pragma once
-
-
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 #include <dinput.h>
-
+#include "KeyCodes.h"
 
 
 class InputClass
@@ -21,7 +19,8 @@ public:
 	bool IsEscapePressed();
 	void GetMouseLocation(int&, int&);
 
-	//char* Get
+	KeyCode GetApplicationKeyCode();
+
 private:
 	bool ReadKeyboard();
 	bool ReadMouse();

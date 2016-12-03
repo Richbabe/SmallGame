@@ -2,6 +2,68 @@
 #include "GameTexture.h"
 #include <D3DX11.h>
 
+
+GameTexture::GameTexture()
+{
+
+}
+
+GameTexture::~GameTexture()
+{
+
+}
+
+bool GameTexture::Initialize(ID3D11Device* device, char* filename)
+{
+	D3D11_SAMPLER_DESC samplerDesc;
+	// Create a texture sampler state description.
+	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.MipLODBias = 0.0f;
+	samplerDesc.MaxAnisotropy = 1;
+	samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	samplerDesc.BorderColor[0] = 0;
+	samplerDesc.BorderColor[1] = 0;
+	samplerDesc.BorderColor[2] = 0;
+	samplerDesc.BorderColor[3] = 0;
+	samplerDesc.MinLOD = 0;
+	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+	HRESULT result;
+	// Create the texture sampler state.
+	result = device->CreateSamplerState(&samplerDesc, &m_sampleState);
+
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	// Load the texture in.
+	result = D3DX11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	ID3D11Resource* res;
+	m_texture->GetResource(&res);
+	ID3D11Texture2D* tex = (ID3D11Texture2D*)res;
+	D3D11_TEXTURE2D_DESC desc;
+	tex->GetDesc(&desc);
+
+	m_texSizeY = (float)desc.Width / (2 * ScreenWith);
+	m_texSizeX = (float)desc.Height / (2 * ScreenHeight);
+	m_textureName = filename;
+	return true;
+}
+
+
+
+
+
+
 ModelClass::ModelClass()
 {
 
@@ -278,51 +340,3 @@ void ModelClass::DrawSprite(ID3D11DeviceContext* deviceContext)
 	deviceContext->DrawIndexed(4, 0, 0);
 }
 
-TextureClass::TextureClass()
-{
-
-}
-
-TextureClass::~TextureClass()
-{
-
-}
-
-bool TextureClass::Initialize(ID3D11Device* device, char* filename)
-{
-	D3D11_SAMPLER_DESC samplerDesc;
-	// Create a texture sampler state description.
-	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
-	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
-	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
-	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
-	samplerDesc.MipLODBias = 0.0f;
-	samplerDesc.MaxAnisotropy = 1;
-	samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
-	samplerDesc.BorderColor[0] = 0;
-	samplerDesc.BorderColor[1] = 0;
-	samplerDesc.BorderColor[2] = 0;
-	samplerDesc.BorderColor[3] = 0;
-	samplerDesc.MinLOD = 0;
-	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
-
-	HRESULT result;
-	// Create the texture sampler state.
-	result = device->CreateSamplerState(&samplerDesc, &m_sampleState);
-
-	if (FAILED(result))
-	{
-		return false;
-	}
-
-	
-
-	// Load the texture in.
-	result = D3DX11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
-	if (FAILED(result))
-	{
-		return false;
-	}
-
-	return true;
-}

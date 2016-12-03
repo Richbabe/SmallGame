@@ -1,0 +1,31 @@
+﻿  D3dGameEngine.cpp
+d:\amy\directgame2\testgame\d3dgameengine.cpp(33): warning C4101: 'screenAspect': unreferenced local variable
+d:\amy\directgame2\testgame\d3dgameengine.cpp(24): warning C4101: 'error': unreferenced local variable
+d:\amy\directgame2\testgame\d3dgameengine.cpp(33): warning C4101: 'fieldOfView': unreferenced local variable
+d:\amy\directgame2\testgame\d3dgameengine.cpp(21): warning C4101: 'stringLength': unreferenced local variable
+  Generating Code...
+  Compiling...
+  WindowsGameEngine.cpp
+  d:\amy\directgame2\directxsdk\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\amy\directgame2\directxsdk\include\dwrite.h(4962): warning C4005: 'DWRITE_E_FILEFORMAT': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50921): note: see previous definition of 'DWRITE_E_FILEFORMAT'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4967): warning C4005: 'DWRITE_E_UNEXPECTED': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50930): note: see previous definition of 'DWRITE_E_UNEXPECTED'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4972): warning C4005: 'DWRITE_E_NOFONT': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50939): note: see previous definition of 'DWRITE_E_NOFONT'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4978): warning C4005: 'DWRITE_E_FILENOTFOUND': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50948): note: see previous definition of 'DWRITE_E_FILENOTFOUND'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4983): warning C4005: 'DWRITE_E_FILEACCESS': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50957): note: see previous definition of 'DWRITE_E_FILEACCESS'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4988): warning C4005: 'DWRITE_E_FONTCOLLECTIONOBSOLETE': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
+d:\amy\directgame2\directxsdk\include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
+d:\amy\directgame2\testgame\windowsgameengine.h(91): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\amy\directgame2\testgame\windowsgameengine.h(93): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  GameTexture.cpp
+  GameEngine.cpp
+  Main.cpp
+  TestGame.vcxproj -> D:\Amy\DirectGame2\x64\Debug\TestGame.exe

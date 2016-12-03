@@ -1,7 +1,12 @@
 #pragma once
+
 #include <d3d11.h>
 #include <d2d1_2.h>
 #include <dwrite.h>
+
+#include "SpriteNode.h"
+#include <vector>
+
 
 class FontClass
 {
@@ -9,7 +14,7 @@ public:
 	FontClass();
 	~FontClass();
 	void Initialize(ID3D11Device *device, IDXGISwapChain *swapChain);
-	void Draw();
+	void Draw(std::vector<std::shared_ptr<FontNode> > & node);
 private:
 	ID2D1Factory2* m_d2dFactory;
 	//ID2D1HwndRenderTarget* m_pRenderTarget;
@@ -20,4 +25,3 @@ private:
 	IDWriteFactory* m_dWriteFactory;
 	IDWriteTextFormat* m_textFormat;
 };
-

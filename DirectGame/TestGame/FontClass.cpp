@@ -98,7 +98,7 @@ void FontClass::Initialize(ID3D11Device *device, IDXGISwapChain *swapChain)
 
 }
 
-void FontClass::Draw()
+void FontClass::Draw(std::vector<std::shared_ptr<FontNode> > & node)
 {
 	ID2D1SolidColorBrush* pBlackBrush;
 	(
@@ -107,21 +107,24 @@ void FontClass::Draw()
 			&pBlackBrush
 		)
 		);
-	WCHAR* info = L"abcdefg";
-
-	D2D1_RECT_F textRect = D2D1::RectF(0, 0, 800, 600);
-
-
 	m_d2dDeviceContext->SetTarget(m_d2dTargetBitmap);
 	m_d2dDeviceContext->BeginDraw();
 	m_d2dDeviceContext->SetTransform(D2D1::Matrix3x2F::Identity());
-	m_d2dDeviceContext->DrawText(
-		info,
-		sizeof(info),
-		m_textFormat,
-		&textRect,
-		pBlackBrush
-	);
+
+	for each (auto var in node)
+	{
+		const WCHAR* infoW = var->GetText();
+		D2D1_RECT_F textRect = D2D1::RectF(var->GetPosX()*ScreenWith, var->GetPosY()*ScreenHeight, var->GetSizeX()*ScreenWith, var->GetSizeY()*ScreenHeight);
+		m_d2dDeviceContext->DrawText(
+			infoW,
+			sizeof(infoW),
+			m_textFormat,
+			&textRect,
+			pBlackBrush
+		);
+		delete infoW;
+	}
+
 
 	m_d2dDeviceContext->EndDraw();
 
